@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class EditHours extends Component {
     constructor(props) {
         super(props)
+        this.openRef = React.createRef();
+        this.closeRef = React.createRef();
         this.state = { 
                 newHours: this.props.hours, 
                 showAdd: false, 
@@ -108,12 +110,14 @@ class EditHours extends Component {
                                     <ul key={ id } className="open-close">
                                         <div className="edit-input">
                                             <input type="text" defaultValue="08:00"
+                                            ref={this.openRef}
                                              onChange={(e) => this.handleChange(e, this.state.day, id, 0, 'open')}
                                              />
                                         </div>
                                         <span>-</span>
                                         <div className="edit-input">
-                                            <input type="text"  defaultValue="24:00" 
+                                            <input type="text"  defaultValue="24:00"
+                                            ref={this.closeRef}
                                              onChange={(e) => this.handleChange(e, this.state.day, id, 1, 'close')}
                                             />
                                         </div>

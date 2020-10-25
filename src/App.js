@@ -138,7 +138,6 @@ saveClicked( item ) {
     let openKey = el.openKey
     let value = el.value
     if(Object.keys(workingHours).length === 0) {
-      workingHours = {[day]: [ {[openKey] : value, close: value} ]}
   } else {
     workingHours[day][index][openKey] = value
   }
